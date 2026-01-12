@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        // int sum=0;
+        // int maxsum=nums[0];
+        // for(int i=0;i<nums.size();i++){
+        //     sum=0;
+        //     for(int j=i;j<nums.size();j++){
+        //         sum+=nums[j];
+        //         maxsum=max(sum,maxsum);
+        //     }
+        // }
+        // return maxsum;
+
+        //USING KADANE'S ALGORITHM:
+        //It states that dp[i] = max(nums[i], dp[i−1] + nums[i]),
+        //the maximum sum at a index i depends on better option:
+        //i) either add the nums[i] to the previous sum , if it gives larger sum
+        //ii) or if to start new subarray from that point bcs it might reduce the sum , so take only that nums[i] at sum
+        int sum = nums[0];
+        int maxsum = nums[0];
+        for(int i=1;i<nums.size();i++){
+            sum=max(nums[i],nums[i]+sum);
+            maxsum=max(sum,maxsum);
+        }
+        return maxsum;
+    }
+};
