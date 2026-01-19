@@ -7,6 +7,7 @@ public:
             sum+=nums[i];
             ans.push_back(sum);
         }
+        //returned the answer as it is int
         return ans;
     }
 };
