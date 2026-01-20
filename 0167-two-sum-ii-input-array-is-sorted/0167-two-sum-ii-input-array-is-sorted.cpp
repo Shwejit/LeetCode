@@ -1,21 +1,34 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& numbers, int target) {
-        int n = numbers.size();
-        int left = 0 , right = n - 1;
-        while(left <= right){
-            int sum = numbers[left] + numbers[right];
-            if(sum == target){
-                // since its a one indexed array 
-                return {left+1,right+1}; 
+        //BRUTE FORCE
+        // vector<int> ans;
+        // for(int i=0;i<numbers.size()-1;i++){
+        //     for(int j=i+1;j<numbers.size();j++){
+        //         if(numbers[i]+numbers[j]==target){
+        //             ans.push_back(i+1);
+        //             ans.push_back(j+1);
+        //         }
+        //     }
+        // }
+        // return ans;
+        vector<int> ans;
+        int i=0;
+        int j=numbers.size()-1;
+        while(i<j){
+            if(numbers[i]+numbers[j]==target){
+                ans.push_back(i+1);
+                ans.push_back(j+1);
+                break;
             }
-            else if(sum > target){
-                right--;
+            else if(numbers[i]+numbers[j]<target){
+                i++;
             }
             else{
-                left++;
+                j--;
             }
         }
-        return {-1,-1};
+        return ans;
+
     }
 };
