@@ -1,6 +1,7 @@
 class Solution {
 public:
     bool isPalindrome(string s) {
+        //BRUTE FORCE
         string a;
         for(int i=0;i<s.length();i++){
             s[i]=tolower(s[i]);
@@ -18,6 +19,9 @@ public:
             j--;
         }
         return true;
+
+        //OPTIMAL APPROACH
+
         
     }
 };
