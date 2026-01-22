@@ -18,20 +18,18 @@ public:
         //OPTIMAL APPROACH
         int i=0;
         int j=0;
-        double maxSumAvg=INT_MIN;
+        double maxSum=INT_MIN;
         double sum=0.0;
-        double sumAvg=0.0;
 
         while(j<nums.size()){
             sum+=nums[j];
             if(j-i+1==k){
-                sumAvg=sum/k;
-                maxSumAvg=max(maxSumAvg,sumAvg);
+                maxSum=max(maxSum,sum);
                 sum-=nums[i];
                 i++;
             }
             j++;
         }
-        return maxSumAvg;
+        return maxSum/k;
     }
 };
