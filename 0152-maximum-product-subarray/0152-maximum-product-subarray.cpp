@@ -1,7 +1,8 @@
 class Solution {
 public:
     int maxProduct(vector<int>& nums) {
-        int product =nums[0];
+        //BRUTE FORCE
+        // int product =nums[0];
         int maxproduct =nums[0];
         for(int i=0;i<nums.size();i++){
             product =1;
@@ -11,6 +12,9 @@ public:
             }
         }
         return maxproduct;
+
+        //OPTIMAL APPROACH
+
         
     }
 };
