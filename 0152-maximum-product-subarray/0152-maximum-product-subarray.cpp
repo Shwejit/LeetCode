@@ -14,7 +14,13 @@ public:
         return maxproduct;
 
         //OPTIMAL APPROACH
-
+        // int product = nums[0];
+        // int maxproduct =nums[0];
+        // for(int i=1;i<nums.size();i++){
+        //     product=max(nums[i],abs( product*nums[i]));
+        //     maxproduct = max(maxproduct, product);
+        // }
+        // return maxproduct;
         
     }
 };
