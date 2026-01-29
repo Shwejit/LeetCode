@@ -2,25 +2,31 @@ class Solution {
 public:
     int maxProduct(vector<int>& nums) {
         //BRUTE FORCE
-        int product =nums[0];
-        int maxproduct =nums[0];
-        for(int i=0;i<nums.size();i++){
-            product =1;
-            for(int j=i;j<nums.size();j++){
-                product*=nums[j];
-                maxproduct=max(maxproduct,product);
-            }
-        }
-        return maxproduct;
-
-        //OPTIMAL APPROACH
-        // int product = nums[0];
+        // int product =nums[0];
         // int maxproduct =nums[0];
-        // for(int i=1;i<nums.size();i++){
-        //     product=max(nums[i],abs( product*nums[i]));
-        //     maxproduct = max(maxproduct, product);
+        // for(int i=0;i<nums.size();i++){
+        //     product =1;
+        //     for(int j=i;j<nums.size();j++){
+        //         product*=nums[j];
+        //         maxproduct=max(maxproduct,product);
+        //     }
         // }
         // return maxproduct;
-        
+
+        //OPTIMAL APPROACH
+        int maxprod=nums[0];
+        int minprod=nums[0];
+        int r=nums[0];
+
+        for(int i=1;i<nums.size();i++){
+            if(nums[i]<0){
+                swap(maxprod,minprod);
+            }
+            maxprod = max(nums[i],maxprod*nums[i]);
+            minprod = min(nums[i],minprod*nums[i]);
+
+            r=max(r,maxprod);
+        }
+        return r;
     }
 };
