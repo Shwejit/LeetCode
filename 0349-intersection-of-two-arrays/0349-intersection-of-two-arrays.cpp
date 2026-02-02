@@ -2,7 +2,6 @@ class Solution {
 public:
     vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
         vector<int> ans;
-        unordered_map<int, int> mpp;
         sort(nums1.begin(), nums1.end());
         sort(nums2.begin(), nums2.end());
         int i = 0;
