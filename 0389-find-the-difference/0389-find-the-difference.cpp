@@ -6,7 +6,7 @@ public:
             mpp[s[i]]++;
         }
         for(int i=0;i<t.length();i++){
-            if(mpp.find(t[i])!=mpp.end() && mpp[t[i]]>0){
+            if(mpp[t[i]]>0){
                 mpp[t[i]]--;
             }
             else{
