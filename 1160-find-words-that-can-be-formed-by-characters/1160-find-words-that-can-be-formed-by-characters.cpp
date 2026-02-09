@@ -26,20 +26,20 @@ public:
         // return count;
 
         //OPTIMAL
-        int arr1[128]={0};
+        int arr1[26]={0};
         for(int i=0;i<chars.length();i++){
-            arr1[chars[i]]++;
+            arr1[chars[i]-'a']++;
         }
         int len=0;
         
 
         for(int j=0;j<words.size();j++){
-            int arr2[128]={0};
+            int arr2[26]={0};
             bool ans=true;
             for(int k=0;k<words[j].length();k++){
-                arr2[words[j][k]]++;
+                arr2[words[j][k]-'a']++;
             }
-            for(int i=0;i<128;i++){
+            for(int i=0;i<26;i++){
                 if(arr2[i]>arr1[i]){
                     ans=false;
                 }
