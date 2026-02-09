@@ -1,6 +1,8 @@
 class Solution {
 public:
     int countCharacters(vector<string>& words, string chars) {
+
+        //BRUTE FORCE
         unordered_map<char,int> mpp;
         int count=0;
         for(int i=0;i<chars.length();i++){
@@ -22,5 +24,8 @@ public:
             }
         }
         return count;
+
+        //OPTIMAL SOLUTION
+
     }
 };
