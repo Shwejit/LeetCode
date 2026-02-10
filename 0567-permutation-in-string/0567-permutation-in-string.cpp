@@ -1,6 +1,7 @@
 class Solution {
 public:
     bool checkInclusion(string s1, string s2) {
+        //BRUTE FORCE
         unordered_map<char, int> mpp;
         int count = 0;
         int len = s1.length();
