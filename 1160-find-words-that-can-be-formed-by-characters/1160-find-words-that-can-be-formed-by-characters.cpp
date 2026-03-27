@@ -1,54 +1,31 @@
 class Solution {
 public:
     int countCharacters(vector<string>& words, string chars) {
+        unordered_map<char, int> mpp;
+        unordered_map<char, int> mppcopy;
+        int sum = 0;
 
-        //BRUTE FORCE
-        // unordered_map<char,int> mpp;
-        // int count=0;
-        // for(int i=0;i<chars.length();i++){
-        //     mpp[chars[i]]++;
-        // }
-        // for(int j=0;j<words.size();j++){
-        //     string c=words[j];
-        //     count+=c.length();
-        //     unordered_map<char,int> temp = mpp;
-        //     for(int k=0;k<c.length();k++){
-        //         if(temp[c[k]]<=0)
-        //         {
-        //             count-=c.length();
-        //             break;
-        //         }
-        //         else{
-        //             temp[c[k]]--;
-        //         }
-        //     }
-        // }
-        // return count;
-
-        //OPTIMAL
-        int arr1[26]={0};
-        for(int i=0;i<chars.length();i++){
-            arr1[chars[i]-'a']++;
+        for (int i = 0; i < chars.length(); i++) {
+            mpp[chars[i]]++;
         }
-        int len=0;
-        
 
-        for(int j=0;j<words.size();j++){
-            int arr2[26]={0};
-            bool ans=true;
-            for(int k=0;k<words[j].length();k++){
-                arr2[words[j][k]-'a']++;
-            }
-            for(int i=0;i<26;i++){
-                if(arr2[i]>arr1[i]){
-                    ans=false;
+        for (int i = 0; i < words.size(); i++) {
+            mppcopy = mpp;
+            string word = words[i];
+            sum += word.length();
+
+            for (int j = 0; j < word.length(); j++) {
+                if (mppcopy.find(word[j]) != mppcopy.end() &&
+                    mppcopy[word[j]] > 0) {
+                    mppcopy[word[j]]--;
+                } else {
+                    sum -= word.length();
+
+                    break;
                 }
             }
-            if(ans==true){
-                len+=words[j].size();
-            }
         }
-        return len;
 
+        return sum;
     }
 };
