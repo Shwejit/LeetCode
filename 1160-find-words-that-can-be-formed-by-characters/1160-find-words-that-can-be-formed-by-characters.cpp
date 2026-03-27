@@ -20,7 +20,6 @@ public:
                     mppcopy[word[j]]--;
                 } else {
                     sum -= word.length();
-
                     break;
                 }
             }
