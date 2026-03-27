@@ -15,8 +15,7 @@ public:
             sum += word.length();
 
             for (int j = 0; j < word.length(); j++) {
-                if (mppcopy.find(word[j]) != mppcopy.end() &&
-                    mppcopy[word[j]] > 0) {
+                if (mppcopy[word[j]] > 0) {
                     mppcopy[word[j]]--;
                 } else {
                     sum -= word.length();
