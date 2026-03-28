@@ -10,20 +10,23 @@ public:
         int count=0;
         int i = 0;
         int j = s1.length() - 1;
-        while (j < s2.length()) {
-            mpp1 = mpp;
-            for (int k = i; k <= j; k++) {
-                if (mpp1[s2[k]] > 0) {
-                    mpp1[s2[k]]--;
-                    count++;
-                }
+        mpp1=mpp;
+        while(i<=j && j<s2.length()){
+            
+            if(mpp1[s2[i]]>0){
+                mpp1[s2[i]]--;
+                count++;
             }
+            else{
+                count=0;
+                mpp1=mpp;
+                j++;
+            }
+
+            i++;
             if(count==s1.length()){
                 return true;
             }
-            count=0;
-            i++;
-            j++;
         }
         return false;
     }
