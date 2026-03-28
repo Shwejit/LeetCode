@@ -8,7 +8,7 @@ public:
         
         while(j<s.length()){
             if(mpp.find(s[j])!=mpp.end()){
-                i=max(i, mpp[s[j]]+1)
+                i=max(i, mpp[s[j]]+1);
             }
             maxlen=max(maxlen,j-i+1);
             mpp[s[j]]=j;
