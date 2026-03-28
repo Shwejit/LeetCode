@@ -4,27 +4,26 @@ public:
         unordered_map<char, int> mpp;
         unordered_map<char, int> mpp1;
 
+        if(s1.length()>s2.length()){
+            return false;
+        }
         for (int i = 0; i < s1.length(); i++) {
             mpp[s1[i]]++;
+            mpp1[s2[i]]++;
         }
-        int count=0;
-        int i = 0;
-        int j = s1.length() - 1;
-        mpp1=mpp;
-        while(i<=j && j<s2.length()){
-            
-            if(mpp1[s2[i]]>0){
-                mpp1[s2[i]]--;
-                count++;
-            }
-            else{
-                count=0;
-                mpp1=mpp;
-                j++;
-            }
 
-            i++;
-            if(count==s1.length()){
+        if(mpp==mpp1){
+            return true;
+        }
+
+        for(int i=s1.length();i<s2.length();i++){
+            mpp1[s2[i]]++;
+            mpp1[s2[i-s1.length()]]--;
+
+            if(mpp1[s2[i-s1.length()]]==0){
+                mpp1.erase(s2[i-s1.length()]);
+            }
+            if(mpp==mpp1){
                 return true;
             }
         }
