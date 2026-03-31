@@ -2,19 +2,19 @@ class Solution {
 public:
     bool isPalindrome(string s) {
 
-        string result = "";
-        for (char c : s) {
-            if (isalpha(c)) {
-                result += tolower(c);
-            }else if (isdigit(c)) {
-                result += c;
-            }
-        }
-
         int i=0;
-        int j=result.length()-1;
+        int j=s.length()-1;
         while(i<=j){
-            if(result[i]!=result[j]){
+            if(!isalnum(s[i])){
+                i++;
+                continue;
+            }
+            if(!isalnum(s[j])){
+                j--;
+                continue;
+            }
+
+            if(tolower(s[i])!=tolower(s[j])){
                 return false;
             }
             i++;
