@@ -1,27 +1,25 @@
 class Solution {
 public:
     bool isPalindrome(string s) {
-        //BRUTE FORCE
-        string a;
-        for(int i=0;i<s.length();i++){
-            s[i]=tolower(s[i]);
-            if(isalnum(s[i])){
-                a+=s[i];
+
+        string result = "";
+        for (char c : s) {
+            if (isalpha(c)) {
+                result += tolower(c);
+            }else if (isdigit(c)) {
+                result += c;
             }
         }
+
         int i=0;
-        int j=a.length()-1;
+        int j=result.length()-1;
         while(i<=j){
-            if(a[i]!=a[j]){
+            if(result[i]!=result[j]){
                 return false;
             }
             i++;
             j--;
         }
         return true;
-
-        //OPTIMAL APPROACH
-
-        
     }
 };
