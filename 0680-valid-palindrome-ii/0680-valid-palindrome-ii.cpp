@@ -14,7 +14,7 @@ public:
         return true;
     }
 private:
-    bool isPalindrome(string s, int start , int end){
+    bool isPalindrome(string &s, int start , int end){
         while(start<end){
             if(s[start]!=s[end]){
                 return false;
