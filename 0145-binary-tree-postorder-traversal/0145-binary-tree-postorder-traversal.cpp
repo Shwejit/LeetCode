@@ -9,6 +9,8 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
+ //RECURSION
 // class Solution {
 //     vector<int> arr;
 // public:
@@ -23,6 +25,8 @@
 //         return arr;
 //     }
 // };
+
+//USING 2 STACKS
 class Solution {
 public:
     vector<int> postorderTraversal(TreeNode* root) {
