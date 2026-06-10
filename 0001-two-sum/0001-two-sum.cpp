@@ -1,13 +1,14 @@
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& num, int tar) {
-        unordered_map<int,int> m;
-        for(int i=0;i<num.size();i++){
-            int n=tar-num[i];
-            if(m.count(n)) return {m[n],i};
-            m[num[i]]=i;
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int n = nums.size();
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (nums[i] + nums[j] == target) {
+                    return {i, j};
+                }
+            }
         }
-        return {};
+        return {}; // No solution found
     }
-    // It i to DAY ?
 };
