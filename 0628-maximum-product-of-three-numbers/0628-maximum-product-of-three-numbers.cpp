@@ -1,9 +1,9 @@
 class Solution {
 public:
     int maximumProduct(vector<int>& nums) {
-        int fl=-1000;
-        int sl=-1000;
-        int tl=-1000;
+        int fl=INT_MIN;
+        int sl=INT_MIN;
+        int tl=INT_MIN;
 
         int fs=INT_MAX;
         int ss=INT_MAX;
